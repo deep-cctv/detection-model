@@ -1,29 +1,27 @@
+# detection-model
 
-# Real-life-violence-detection
+deep-cctv 에서 폭력을 감지하기 위한 모델
 
-## Data Collection
+## 개요
 
-The data used was data provided by Kaggle. The data is largely divided into Violence and NonViolence for 1000 images each.
+kaggle 의 데이터로 MobileNetV2 모델을 학습시킨다.
 
-[Real Life Violence Situations Data](https://www.kaggle.com/mohamedmustafa/real-life-violence-situations-dataset)
+- [notbook 참고](mobilenetv2-model.ipynb)
 
-## Model
-I have used `InceptionV3` which is a pretrained Imagenet CNN model provided by `Keras`.
+실행 결과 생성된 모델 model.h5를 cctv-server 에서 사용한다.
 
-Update - `MobileNetV2` is used to with improved accuracy and predictions. This model was created on Kaggle. 
+## 실행
 
-![image](images/graph.PNG)
+```bash
+pip install -r requirements.txt
+```
 
-## Output
-Output is in the form of a video, which will tell violence/ non-violence on the top left corner.
+`mobilenetv2-model.py` 실행
 
+### 실행 중 문제해결
 
-![v_output](https://user-images.githubusercontent.com/56165694/123710940-366c7d00-d88d-11eb-866e-c09e2185c571.gif)
+#### `pip install -r requirements.txt` 실행 중 에러 발생 시
 
-
-
-
-
-## Reference
-https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/
-https://www.pyimagesearch.com/2019/06/03/fine-tuning-with-keras-and-deep-learning/
+- python 버전을 3.11 을 사용한다.
+- `tensorflow-io-gcs-filesystem` 를 제외하고 설치한다. (주석처리)
+- 맥 또는 리눅스 환경에서 실행한다.
